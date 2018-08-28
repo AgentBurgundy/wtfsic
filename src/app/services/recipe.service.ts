@@ -21,6 +21,6 @@ export class RecipeService {
   }
 
   public getRandomRecipe(options: any) {
-    return JSON.stringify(this.apiData);
+    return this.apiData;
   }
 }
