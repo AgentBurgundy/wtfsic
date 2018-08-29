@@ -7,10 +7,16 @@ const app = express();
 app.use(express.static(__dirname + '/dist/wtfsic'));
 
 app.get('/api', (req, res) => {
-    res.json({
-        id: process.env.EDAMAME_ID,
-        key: process.env.EDAMAME_KEY
-    })
+    let info = {
+        id: 'empty',
+        key: 'empty'
+    };
+
+    info.id = process.env.EDAMAME_ID;
+    info.key = process.env.EDAMAME_KEY;
+
+    console.log(JSON.stringify(info));
+    res.status(200).send(info);
 });
 
 app.get('/*', function(req,res) {

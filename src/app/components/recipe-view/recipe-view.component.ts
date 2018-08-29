@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-view',
@@ -8,7 +9,10 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeViewComponent implements OnInit {
 
-  currentFuckingRecipe: any;
+  currentFuckingRecipe: any = {
+    id: '',
+    key: ''
+  };
   fuckingOptions: any = {
 
   };
@@ -16,8 +20,14 @@ export class RecipeViewComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    this.currentFuckingRecipe = 
-      this.recipeService.getRandomRecipe(this.fuckingOptions)
+    console.log('Getting info from server...');
+    this.recipeService.getRandomRecipe(this.fuckingOptions)
+      .subscribe(data => 
+        {
+          this.currentFuckingRecipe = data;
+          console.log(`Received data - ${this.currentFuckingRecipe.id} ${this.currentFuckingRecipe.key}`);
+        });
+    
   }
 
 }
