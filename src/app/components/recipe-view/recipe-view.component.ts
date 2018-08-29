@@ -10,8 +10,7 @@ import { Observable } from 'rxjs';
 export class RecipeViewComponent implements OnInit {
 
   currentFuckingRecipe: any = {
-    id: '',
-    key: ''
+    title: ''
   };
   fuckingOptions: any = {
 
