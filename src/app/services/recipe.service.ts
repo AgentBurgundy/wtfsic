@@ -36,7 +36,7 @@ export class RecipeService {
       }
     }).pipe(map((res: Response) => {
       return {
-        title: res["hits"][0]["recipe"]["label"]
+        title: res["hits"][Math.floor(Math.random() * Object.keys(res["hits"]).length)]["recipe"]["label"]
       }
     }));
   }
