@@ -21,13 +21,8 @@ export class RecipeViewComponent implements OnInit {
 
   ngOnInit() {
     console.log('Getting info from server...');
-    this.recipeService.getRandomRecipe(this.fuckingOptions)
-      .subscribe(data => 
-        {
-          this.currentFuckingRecipe = data;
-          console.log(`Received data - ${this.currentFuckingRecipe.id} ${this.currentFuckingRecipe.key}`);
-        });
-    
+    this.currentFuckingRecipe = 
+      this.recipeService.getRandomRecipe(this.fuckingOptions);
   }
 
 }
