@@ -36,7 +36,7 @@ export class RecipeService {
       }
     }).pipe(map((res: Response) => {
       return {
-        title: res.json()["hits"][0]["recipe"]["label"]
+        title: res["hits"][0]["recipe"]["label"]
       }
     }));
   }
