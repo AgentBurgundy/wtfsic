@@ -27,12 +27,12 @@ export class RecipeService {
     return this.http.get<Auth>(this.host);
   }
 
-  public getRandomRecipe(data: any, options: any): Observable<Object> {
+  public getRandomRecipe(data: any, query: string, options: any): Observable<Object> {
     return this.http.get('https://api.edamam.com/search', {
       params: {
         "app_id": data.id,
         "app_key": data.key,
-        "q": "chicken"
+        "q": query
       }
     }).pipe(map((res: Response) => {
       return {

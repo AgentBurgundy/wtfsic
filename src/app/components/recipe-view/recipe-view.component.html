@@ -1,2 +1,7 @@
 <h5>You should fucking make...</h5>
 <h3>{{ currentFuckingRecipe.title }}</h3>
+
+<form #queryForm="ngForm" (ngSubmit)="search()">
+    <input type="text" required name="query" id="query" [(ngModel)]="queryTerm"/>
+    <button type="submit" [disabled]="!queryForm.form.valid">Get Another Fucking Recipe</button>
+</form>
