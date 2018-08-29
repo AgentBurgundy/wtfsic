@@ -22,10 +22,7 @@ export class RecipeService {
     }
   }
 
-  public getRandomRecipe(options: any) {
-    let auth;
-    this.http.get(this.host).subscribe(data => auth = data);
-
-    return auth;
+  public getRandomRecipe(options: any): Observable<Object> {
+    return this.http.get(this.host);      
   }
 }
