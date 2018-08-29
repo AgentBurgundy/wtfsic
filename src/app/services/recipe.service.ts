@@ -23,7 +23,9 @@ export class RecipeService {
   }
 
   public getRandomRecipe(options: any): Observable<Object> {
-    console.log(this.host);
-    return this.http.get(this.host);      
+    let auth;
+    this.http.get(this.host).subscribe(data => auth = data);
+
+    return auth;
   }
 }
